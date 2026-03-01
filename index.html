@@ -123,6 +123,9 @@
       background:rgba(255,255,255,.03);
       width:fit-content;
       flex-wrap:wrap;
+      position:relative;
+      z-index:2;
+      pointer-events:auto;
     }
     .seg button{
       border:0; background:transparent;
@@ -130,6 +133,9 @@
       font-weight:750; font-size:13px;
       padding:10px 12px; border-radius:999px;
       cursor:pointer;
+      pointer-events:auto;
+      touch-action:manipulation;
+      -webkit-tap-highlight-color:transparent;
       transition: background .2s ease, color .2s ease, transform .2s ease;
     }
     .seg button:hover{transform: translateY(-1px)}
@@ -1270,7 +1276,20 @@
       showToast('Sent (demo)');
     });
 
-    // Region mode switch updates accents + copy
+    // Region mode switch updates accents + copy (ensure buttons are clickable)
+    const regionIds = ['regCar','regAfr','regMe','regAsia','regEu','regUk'];
+    const regionMap = { regCar:'car', regAfr:'afr', regMe:'me', regAsia:'asia', regEu:'eu', regUk:'uk' };
+    const seg = document.querySelector('.seg[role="tablist"]');
+    if (seg) {
+      seg.addEventListener('click', function(e) {
+        const btn = e.target.closest('button[id^="reg"]');
+        if (btn && btn.id && regionMap[btn.id]) {
+          e.preventDefault();
+          setRegion(regionMap[btn.id]);
+        }
+      });
+    }
+
     const regCar = document.getElementById('regCar');
     const regAfr = document.getElementById('regAfr');
     const regMe  = document.getElementById('regMe');
@@ -1289,6 +1308,7 @@
       // Toggle UI active states
       const map = {car: regCar, afr: regAfr, me: regMe, asia: regAsia, eu: regEu, uk: regUk};
       Object.entries(map).forEach(([k,btn])=>{
+        if (!btn) return;
         const active = k===region;
         btn.classList.toggle('active', active);
         btn.setAttribute('aria-selected', active.toString());
@@ -1447,12 +1467,7 @@
       document.body.style.backgroundPosition = (Math.random()*2).toFixed(2) + 'px ' + (Math.random()*2).toFixed(2) + 'px';
     }
 
-    regCar.addEventListener('click', ()=>setRegion('car'));
-    regAfr.addEventListener('click', ()=>setRegion('afr'));
-    regMe.addEventListener('click', ()=>setRegion('me'));
-    regAsia.addEventListener('click', ()=>setRegion('asia'));
-    regEu.addEventListener('click', ()=>setRegion('eu'));
-    regUk.addEventListener('click', ()=>setRegion('uk'));
+    // Region buttons also wired via delegation on .seg (see above)
 
     // KPI counters animate when visible
     const counters = Array.from(document.querySelectorAll('.count'));
