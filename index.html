@@ -1,0 +1,1522 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#0b0f14" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <title>Nexora Global Benefits™ — Global Cardholder Benefits (Pitch)</title>
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.09);
+      --stroke: rgba(255,255,255,.10);
+      --stroke2: rgba(255,255,255,.14);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.68);
+      --muted2: rgba(255,255,255,.52);
+      --shadow: 0 24px 60px rgba(0,0,0,.45);
+      --shadow2: 0 10px 30px rgba(0,0,0,.35);
+      --rXL: 28px;
+      --rLG: 20px;
+      --rMD: 14px;
+      --maxw: 1180px;
+      --glass: blur(18px);
+      --font: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial;
+
+      /* Region accents (default: Caribbean) */
+      --accent: #2FE7C3;
+      --accent2:#63B3FF;
+      --accent3:#F7C66B;
+
+      --ok:#35D07F;
+      --violet:#B7A4FF;
+    }
+
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f6f7fb;
+        --panel: rgba(0,0,0,.04);
+        --panel2: rgba(0,0,0,.06);
+        --stroke: rgba(0,0,0,.08);
+        --stroke2: rgba(0,0,0,.12);
+        --text: rgba(0,0,0,.92);
+        --muted: rgba(0,0,0,.64);
+        --muted2: rgba(0,0,0,.50);
+        --shadow: 0 24px 60px rgba(10,20,40,.12);
+        --shadow2: 0 10px 30px rgba(10,20,40,.10);
+      }
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font);
+      background:
+        radial-gradient(1200px 700px at 20% -10%, color-mix(in srgb, var(--accent) 24%, transparent), transparent 60%),
+        radial-gradient(900px 600px at 80% 0%, color-mix(in srgb, var(--accent2) 24%, transparent), transparent 62%),
+        radial-gradient(900px 700px at 70% 90%, color-mix(in srgb, var(--accent2) 14%, transparent), transparent 60%),
+        radial-gradient(900px 700px at 10% 95%, color-mix(in srgb, var(--accent3) 16%, transparent), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      letter-spacing:-0.01em;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px; padding-left: max(22px, env(safe-area-inset-left)); padding-right: max(22px, env(safe-area-inset-right));}
+
+    /* Topbar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:var(--glass); -webkit-backdrop-filter:var(--glass);
+      background: color-mix(in srgb, var(--bg) 72%, transparent);
+      border-bottom:1px solid var(--stroke);
+    }
+    .topbar .row{min-height:64px; height:auto; display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; padding-top: env(safe-area-inset-top);}
+    .brand{display:flex; align-items:center; gap:10px; min-width:0; flex:1 1 auto;}
+    .mark{
+      width:34px;height:34px;border-radius:10px;
+      background:
+        radial-gradient(12px 12px at 30% 30%, rgba(255,255,255,.70), transparent 60%),
+        linear-gradient(135deg, color-mix(in srgb, var(--accent2) 90%, white 0%), color-mix(in srgb, var(--accent) 90%, white 0%));
+      box-shadow:0 10px 24px rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.18);
+    }
+    .brand .title{display:flex; flex-direction:column; line-height:1.05;}
+    .brand .title strong{font-weight:800; letter-spacing:-0.02em}
+    .brand .title span{font-size:12px;color:var(--muted2);margin-top:3px}
+
+    .nav{display:flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:flex-end}
+    .pill{
+      padding:10px 12px; border-radius:999px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.04);
+      color:var(--muted);
+      font-size:13px;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+      user-select:none; cursor:pointer;
+      display:flex; align-items:center; gap:8px;
+      white-space:nowrap;
+    }
+    .pill:hover{transform:translateY(-1px); border-color:var(--stroke2); background:rgba(255,255,255,.06)}
+    .pill:active{opacity:.9}
+    .pill.primary{
+      border-color: color-mix(in srgb, var(--accent2) 55%, var(--stroke));
+      background: linear-gradient(180deg, color-mix(in srgb, var(--accent2) 18%, transparent), rgba(255,255,255,.04));
+      color:var(--text);
+    }
+    .pill .dot{
+      width:7px;height:7px;border-radius:999px;background:var(--accent2);
+      box-shadow:0 0 0 4px color-mix(in srgb, var(--accent2) 18%, transparent);
+    }
+
+    /* Region switch */
+    .seg{
+      display:flex; gap:6px; padding:6px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.03);
+      width:fit-content;
+      flex-wrap:wrap;
+    }
+    .seg button{
+      border:0; background:transparent;
+      color:var(--muted);
+      font-weight:750; font-size:13px;
+      padding:10px 12px; border-radius:999px;
+      cursor:pointer;
+      transition: background .2s ease, color .2s ease, transform .2s ease;
+    }
+    .seg button:hover{transform: translateY(-1px)}
+    .seg button.active{
+      color:var(--text);
+      background:rgba(255,255,255,.08);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.10);
+    }
+    .seg button:active{opacity:.9}
+
+    /* Hero */
+    .hero{padding:44px 0 26px;}
+    .gridHero{display:grid; grid-template-columns: 1.15fr .85fr; gap:18px; align-items:stretch;}
+    @media (max-width:980px){.gridHero{grid-template-columns:1fr}.brand{min-width:auto}}
+    .card{
+      border-radius:var(--rXL);
+      border:1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .heroMain{padding:26px; position:relative; min-height:320px;}
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px; border-radius:999px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.04);
+      color:var(--muted); font-size:13px;
+    }
+    .kicker b{color:var(--text); font-weight:700}
+    h1{
+      margin:14px 0 10px;
+      font-size: clamp(34px, 4vw, 52px);
+      line-height:1.03;
+      letter-spacing:-0.04em;
+      font-weight:820;
+    }
+    .sub{
+      font-size:16px; line-height:1.5;
+      color:var(--muted);
+      max-width:70ch;
+      margin:0 0 18px;
+    }
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:14px;}
+    .btn{
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      padding:12px 14px;
+      border-radius:14px;
+      font-weight:700;
+      font-size:14px;
+      cursor:pointer;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+      display:inline-flex; align-items:center; gap:10px;
+      white-space:nowrap;
+    }
+    .btn:hover{transform:translateY(-1px); border-color:var(--stroke2); background:rgba(255,255,255,.06)}
+    .btn:active{opacity:.9}
+    .btn.primary{
+      border-color: color-mix(in srgb, var(--accent2) 55%, var(--stroke));
+      background: linear-gradient(180deg, color-mix(in srgb, var(--accent2) 18%, transparent), rgba(255,255,255,.04));
+    }
+    .btn .icon{width:18px;height:18px;display:inline-block;opacity:.92;}
+
+    .heroMeta{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:16px;}
+    .meta{
+      padding:12px;
+      border-radius:16px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.03);
+    }
+    .meta .label{font-size:12px;color:var(--muted2);margin-bottom:6px}
+    .meta .value{font-size:14px;color:var(--text);font-weight:700}
+    .meta .hint{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.35}
+
+    .heroMain:before{
+      content:"";
+      position:absolute; inset:-60px -120px auto auto;
+      width:460px; height:460px; border-radius:70px;
+      background:
+        radial-gradient(120px 120px at 35% 30%, rgba(255,255,255,.55), transparent 60%),
+        linear-gradient(135deg, color-mix(in srgb, var(--accent2) 26%, transparent), color-mix(in srgb, var(--accent) 20%, transparent));
+      transform:rotate(14deg);
+      opacity:.55;
+      pointer-events:none;
+      border:1px solid rgba(255,255,255,.10);
+    }
+
+    /* Side panel */
+    .side{padding:18px; display:flex; flex-direction:column; gap:12px; min-height:380px;}
+    .chipRow{display:flex; gap:8px; flex-wrap:wrap;}
+    .chip{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.03);
+      font-size:12px;
+      color:var(--muted);
+      display:inline-flex; align-items:center; gap:8px;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .chip i{width:8px;height:8px;border-radius:999px;display:inline-block;background:var(--accent3);box-shadow:0 0 0 4px color-mix(in srgb, var(--accent3) 14%, transparent);}
+
+    .cardMock{
+      margin-top:6px;
+      border-radius:22px;
+      border:1px solid var(--stroke);
+      background:
+        radial-gradient(18px 18px at 22% 26%, rgba(255,255,255,.45), transparent 60%),
+        linear-gradient(135deg, color-mix(in srgb, var(--accent2) 28%, transparent), color-mix(in srgb, var(--accent) 18%, transparent));
+      padding:16px;
+      box-shadow:var(--shadow2);
+      position:relative;
+      overflow:hidden;
+      min-height:190px;
+    }
+    .cardMock .row1{display:flex; justify-content:space-between; align-items:flex-start}
+    .cardMock .brandline{font-weight:860; letter-spacing:-0.03em}
+    .cardMock .small{font-size:12px; color: rgba(255,255,255,.82); margin-top:4px; line-height:1.35}
+    .cardMock .num{
+      margin-top:44px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size:16px; letter-spacing:.12em;
+      color: rgba(255,255,255,.92);
+    }
+    .cardMock .foot{
+      margin-top:16px;
+      display:flex; justify-content:space-between; align-items:flex-end;
+      font-size:12px;
+      color: rgba(255,255,255,.86);
+    }
+    .badge{
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.08);
+      color: rgba(255,255,255,.92);
+      font-weight:850;
+      font-size:12px;
+      backdrop-filter: blur(10px);
+      white-space:nowrap;
+    }
+    .cardMock:after{
+      content:"";
+      position:absolute; inset:auto -80px -120px auto;
+      width:300px; height:300px; border-radius:80px;
+      background:
+        radial-gradient(140px 140px at 30% 30%, rgba(255,255,255,.30), transparent 62%),
+        linear-gradient(135deg, rgba(183,164,255,.18), color-mix(in srgb, var(--accent3) 16%, transparent));
+      transform:rotate(16deg);
+      opacity:.85;
+      border:1px solid rgba(255,255,255,.12);
+    }
+
+    /* Sections */
+    .section{padding:22px 0;}
+    .sectionHeader{
+      display:flex; justify-content:space-between; align-items:flex-end;
+      gap:14px; flex-wrap:wrap;
+      margin:6px 0 14px;
+    }
+    .sectionHeader h2{margin:0; font-size:22px; letter-spacing:-0.02em; font-weight:820;}
+    .sectionHeader p{margin:0; color:var(--muted); max-width:76ch; line-height:1.5; font-size:14px;}
+    .grid2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+    @media (max-width:980px){.grid2{grid-template-columns:1fr}}
+
+    .panel{
+      border-radius:var(--rXL);
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.04);
+      box-shadow:var(--shadow2);
+      overflow:hidden;
+    }
+    .panel .top{
+      padding:16px 18px;
+      border-bottom:1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
+    }
+    .panel .inner{padding:18px;}
+    .tag{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:12px; color:var(--muted);
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.03);
+      padding:7px 10px; border-radius:999px; user-select:none;
+      white-space:nowrap;
+    }
+    .tag b{color:var(--text); font-weight:850}
+    .tag .mini{width:8px;height:8px;border-radius:999px;background:var(--accent2);box-shadow:0 0 0 4px color-mix(in srgb, var(--accent2) 14%, transparent);}
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.03);
+    }
+    th,td{
+      padding:12px;
+      border-bottom:1px solid var(--stroke);
+      vertical-align:top;
+      font-size:13px;
+      color:var(--muted);
+    }
+    th{
+      text-align:left;
+      color:var(--muted2);
+      font-weight:900;
+      font-size:12px;
+      letter-spacing:.02em;
+      text-transform:uppercase;
+      background:rgba(255,255,255,.03);
+    }
+    tr:last-child td{border-bottom:0}
+    td strong{color:var(--text); font-weight:770}
+    .amt{font-weight:900; color:var(--text); white-space:nowrap}
+
+    .pillSmall{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px; border-radius:999px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .pillSmall i{width:8px;height:8px;border-radius:999px;display:inline-block;background:var(--ok);box-shadow:0 0 0 4px rgba(53,208,127,.14);}
+
+    /* Slides */
+    .slides{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;}
+    @media (max-width:1100px){.slides{grid-template-columns:1fr 1fr}}
+    @media (max-width:700px){.slides{grid-template-columns:1fr}}
+    .slide{
+      border-radius:var(--rXL);
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.04);
+      box-shadow:var(--shadow2);
+      overflow:hidden;
+      min-height:220px;
+    }
+    .slide .head{
+      padding:14px 16px;
+      border-bottom:1px solid var(--stroke);
+      display:flex; align-items:center; justify-content:space-between;
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+    }
+    .slide .head .n{font-size:12px;color:var(--muted2);font-weight:950;letter-spacing:.12em;}
+    .slide .head .t{font-weight:850; letter-spacing:-0.02em;}
+    .slide .body{padding:16px; color:var(--muted); font-size:13.5px; line-height:1.5;}
+    .bullets{margin:0; padding-left:18px;}
+    .bullets li{margin:8px 0;}
+
+    /* KPI counters */
+    .kpis{display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:10px; margin-top:12px;}
+    @media (max-width:980px){.kpis{grid-template-columns:1fr 1fr}}
+    .kpi{
+      padding:12px;
+      border-radius:16px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.03);
+    }
+    .kpi .label{font-size:12px;color:var(--muted2);margin-bottom:6px}
+    .kpi .value{
+      font-size:20px;
+      font-weight:950;
+      color:var(--text);
+      letter-spacing:-0.03em;
+    }
+    .kpi .note{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.35}
+
+    /* Footer */
+    .footer{padding:28px 0 46px; color:var(--muted2); font-size:12px; line-height:1.55;}
+    .fineprint{border-top:1px solid var(--stroke); padding-top:16px; margin-top:10px;}
+
+    /* Modal */
+    .modal{
+      position:fixed; inset:0;
+      background:rgba(0,0,0,.55);
+      display:none; align-items:center; justify-content:center;
+      padding:18px; z-index:80;
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    }
+    .modal.open{display:flex}
+    .modal .sheet{
+      width:min(980px,100%);
+      border-radius:26px;
+      border:1px solid var(--stroke2);
+      background: color-mix(in srgb, var(--bg) 70%, rgba(255,255,255,.10));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .modal .bar{
+      padding:12px 14px;
+      border-bottom:1px solid var(--stroke);
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+    }
+    .modal .bar strong{font-weight:950}
+    .modal .content{padding:16px}
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size:12px;
+      padding:4px 7px;
+      border-radius:8px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.04);
+      color:var(--muted);
+    }
+
+    /* nexora.com landing section */
+    .landing{
+      border-radius:var(--rXL);
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.03);
+      box-shadow:var(--shadow2);
+      overflow:hidden;
+    }
+    .landing .inner{padding:18px;}
+    .landingGrid{
+      display:grid; grid-template-columns: 1.1fr .9fr; gap:14px; align-items:stretch;
+    }
+    @media (max-width:980px){.landingGrid{grid-template-columns:1fr}}
+    .form{
+      border-radius:20px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.03);
+      padding:14px;
+    }
+    .field{display:flex; flex-direction:column; gap:6px; margin-bottom:10px;}
+    .field label{font-size:12px; color:var(--muted2); font-weight:850; text-transform:uppercase; letter-spacing:.02em}
+    .field input, .field select, .field textarea{
+      border-radius:14px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      padding:12px 12px;
+      font-size:16px;
+      outline:none;
+      -webkit-appearance:none;
+      appearance:none;
+    }
+    .field textarea{min-height:96px; resize:vertical}
+    .helper{font-size:12px; color:var(--muted); line-height:1.35}
+    .toast{
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 18px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke2);
+      background: color-mix(in srgb, var(--bg) 55%, rgba(255,255,255,.12));
+      color: var(--text);
+      box-shadow: var(--shadow2);
+      display:none;
+      z-index: 120;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .toast.show{display:block}
+
+    /* Table scroll on narrow screens */
+    .panel .inner{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+    table{min-width:320px; display:table;}
+
+    /* Modal mobile: scrollable, safe area */
+    .modal .sheet{
+      max-height: calc(100vh - 36px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+      overflow-y:auto;
+      -webkit-overflow-scrolling:touch;
+    }
+    .modal .content{overflow-wrap:break-word; word-break:break-word;}
+
+    /* ========== Mobile & small screens ========== */
+    @media (max-width: 768px){
+      .wrap{padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right));}
+      .hero{padding:28px 0 20px;}
+      .heroMain{padding:18px; min-height:280px;}
+      .side{padding:14px; min-height:280px;}
+      .section{padding:16px 0;}
+      .sectionHeader{flex-direction:column; align-items:flex-start;}
+      .sectionHeader h2{font-size:20px;}
+      .ctaRow{flex-direction:column; align-items:stretch;}
+      .ctaRow .btn{justify-content:center; min-height:48px;}
+      .heroMeta{grid-template-columns:1fr;}
+      .pill{min-height:44px; min-width:44px; padding:12px 14px; justify-content:center;}
+      .seg button{min-height:44px; min-width:44px; padding:12px 14px;}
+      .btn{min-height:48px; padding:14px 16px;}
+      .cardMock{min-height:160px; padding:14px;}
+      .cardMock .num{font-size:14px; margin-top:32px;}
+      .footer{padding:20px 0 32px; padding-bottom: max(32px, env(safe-area-inset-bottom));}
+      .toast{bottom: max(18px, env(safe-area-inset-bottom)); left: 16px; right: 16px; transform: none; width: auto;}
+    }
+
+    @media (max-width: 640px){
+      .wrap{padding-left: max(14px, env(safe-area-inset-left)); padding-right: max(14px, env(safe-area-inset-right));}
+      .topbar .row{gap:10px;}
+      .brand .title strong{font-size:1rem;}
+      .brand .title span{font-size:11px;}
+      .nav{gap:6px; justify-content:flex-start;}
+      .kpis{grid-template-columns:1fr;}
+      .modal{padding:12px; align-items:flex-end;}
+      .modal .sheet{width:100%; max-height:90vh; border-radius:20px 20px 0 0;}
+      .modal .bar{padding:14px 16px;}
+      .modal .content{padding:14px;}
+      .landing .inner{padding:14px;}
+      .form{padding:12px;}
+      h1{font-size:clamp(26px, 6vw, 34px);}
+      #landingTitle{font-size:clamp(22px, 5vw, 28px) !important;}
+    }
+
+    @media (max-width: 480px){
+      .wrap{padding-left: max(12px, env(safe-area-inset-left)); padding-right: max(12px, env(safe-area-inset-right));}
+      .heroMain:before{width:280px; height:280px; opacity:.4;}
+      .cardMock:after{width:200px; height:200px;}
+      .slide .body{font-size:13px;}
+      .slide .head .t{font-size:14px;}
+    }
+
+    /* Touch: larger tap targets (no hover on touch) */
+    @media (hover: none) and (pointer: coarse){
+      .pill, .btn, .seg button{min-height:44px;}
+      .pill .dot, .tag, .chip{cursor:pointer;}
+    }
+
+    @media print{
+      .topbar, .ctaRow, .pill, .btn, .modal, .toast{display:none !important}
+      body{background:#fff; color:#000}
+      .card, .panel, .slide, .landing{box-shadow:none !important}
+      a{color:#000}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar" role="banner">
+    <div class="wrap">
+      <div class="row">
+        <div class="brand">
+          <div class="mark" aria-hidden="true"></div>
+          <div class="title">
+            <strong>Nexora Global Benefits™</strong>
+            <span id="topSub">Caribbean benefits infrastructure for modern banks</span>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Primary">
+          <a class="pill" href="#overview">Overview</a>
+          <a class="pill" href="#tiers">Tiers</a>
+          <a class="pill" href="#kpis">KPIs</a>
+          <a class="pill" href="#pitch">Pitch</a>
+          <a class="pill" href="#landing">nexora.com</a>
+          <button class="pill primary" id="openOnePager" type="button"><span class="dot"></span>One-Pager</button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" id="overview">
+    <div class="wrap">
+      <div class="gridHero">
+        <div class="card heroMain">
+          <div class="kicker"><b>Core thesis:</b> add a premium benefits layer to any credit, debit, or prepaid portfolio — fast.</div>
+
+          <h1 id="heroTitle">Bank cards shouldn't feel basic.</h1>
+          <p class="sub" id="heroSub">
+            Nexora Global Benefits™ is a global benefits infrastructure platform enabling banks in the <strong>Caribbean</strong>, <strong>Africa</strong>, <strong>Middle East</strong>, <strong>Asia</strong>, <strong>EU</strong>, and the <strong>UK</strong>
+            to attach premium perks, travel privileges, protections, and optional insurance bundles to cardholders — without building the ecosystem in-house.
+          </p>
+
+          <div class="ctaRow">
+            <a class="btn primary" href="#tiers">
+              <svg class="icon" viewBox="0 0 24 24" fill="none">
+                <path d="M7 7h10M7 12h10M7 17h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              View benefit tiers
+            </a>
+            <a class="btn" href="#landing">
+              <svg class="icon" viewBox="0 0 24 24" fill="none">
+                <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              View landing page block
+            </a>
+            <button class="btn" id="copyLink" type="button" title="Copies the current URL">
+              <svg class="icon" viewBox="0 0 24 24" fill="none">
+                <path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07L10.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M14 11a5 5 0 0 0-7.07 0L4.1 13.83a5 5 0 0 0 7.07 7.07L13.5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Copy link
+            </button>
+          </div>
+
+          <div class="heroMeta" role="list">
+            <div class="meta" role="listitem">
+              <div class="label">Who it's for</div>
+              <div class="value">Banks + issuers (outside the U.S.)</div>
+              <div class="hint">Segmented for mass, affluent, premium portfolios.</div>
+            </div>
+            <div class="meta" role="listitem">
+              <div class="label">Attach to</div>
+              <div class="value">Credit • Debit • Prepaid</div>
+              <div class="hint">Same platform, tiered benefit bundles.</div>
+            </div>
+            <div class="meta" role="listitem">
+              <div class="label">Activation</div>
+              <div class="value">QR • SMS • App • Call center</div>
+              <div class="hint">Low-friction enrollment + servicing.</div>
+            </div>
+            <div class="meta" role="listitem">
+              <div class="label">Bank outcome</div>
+              <div class="value">Activation + retention + spend lift</div>
+              <div class="hint">Make your card the default choice.</div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="card side" aria-label="Region selector and card preview">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+            <div style="font-weight:950; letter-spacing:-0.02em;">Region mode</div>
+            <div class="seg" role="tablist" aria-label="Region">
+              <button id="regCar" class="active" type="button" role="tab" aria-selected="true">Caribbean</button>
+              <button id="regAfr" type="button" role="tab" aria-selected="false">Africa</button>
+              <button id="regMe" type="button" role="tab" aria-selected="false">Middle East</button>
+              <button id="regAsia" type="button" role="tab" aria-selected="false">Asia</button>
+              <button id="regEu" type="button" role="tab" aria-selected="false">EU</button>
+              <button id="regUk" type="button" role="tab" aria-selected="false">UK</button>
+            </div>
+          </div>
+
+          <div class="chipRow" aria-label="Key features">
+            <span class="chip"><i></i> Benefits layer</span>
+            <span class="chip"><i style="background:var(--accent2); box-shadow:0 0 0 4px color-mix(in srgb, var(--accent2) 14%, transparent)"></i> White-label</span>
+            <span class="chip"><i style="background:var(--violet); box-shadow:0 0 0 4px rgba(183,164,255,.14)"></i> Mobile-first</span>
+            <span class="chip"><i style="background:var(--ok); box-shadow:0 0 0 4px rgba(53,208,127,.14)"></i> Fast rollout</span>
+          </div>
+
+          <div class="cardMock" id="cardMock">
+            <div class="row1">
+              <div>
+                <div class="brandline" id="cardBrand">Nexora Access</div>
+                <div class="small" id="cardSub">Everyday perks that make your card the default.</div>
+              </div>
+              <div class="badge" id="cardBadge">Caribbean • Global-ready</div>
+            </div>
+            <div class="num">••••  7391  ••••  2208</div>
+            <div class="foot">
+              <div>Cardholder Name</div>
+              <div>VALID THRU 12/29</div>
+            </div>
+          </div>
+
+          <div class="panel" style="border-radius:22px">
+            <div class="inner" id="regionSummary">
+              <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+                <div>
+                  <div style="font-weight:950; letter-spacing:-0.02em;">Caribbean positioning</div>
+                  <div style="color:var(--muted); font-size:13px; margin-top:6px; line-height:1.45;">
+                    Premium differentiation for small markets: <strong>travel benefits</strong>, <strong>tourism-facing perks</strong>, and
+                    <strong>diaspora-friendly</strong> value that improves card preference.
+                  </div>
+                </div>
+                <span class="tag"><span class="mini"></span><b>Retention</b> + brand lift</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tiers -->
+  <section class="section" id="tiers">
+    <div class="wrap">
+      <div class="sectionHeader">
+        <div>
+          <h2>Nexora Global Benefits Tiers</h2>
+          <p>Three SKUs that map to how banks already segment portfolios. Configurable per country, regulator, and partner availability.</p>
+        </div>
+        <span class="tag"><span class="mini" style="background:var(--ok); box-shadow:0 0 0 4px rgba(53,208,127,.14)"></span><b>SKU</b> rollout</span>
+      </div>
+
+      <div class="grid2">
+        <article class="panel">
+          <div class="top">
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              <div style="font-weight:950; letter-spacing:-0.02em;">Nexora Access</div>
+              <div style="color:var(--muted); font-size:13px;">Mass market / Debit / Prepaid: high perceived value, low complexity.</div>
+            </div>
+            <span class="pillSmall"><i></i> Default</span>
+          </div>
+          <div class="inner">
+            <table aria-label="Access tier">
+              <thead><tr><th>Benefit</th><th style="width:240px">What it does</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Card-linked merchant discounts</strong><br><span>Grocery, fuel, telecom, utilities partners</span></td><td>Habit-forming usage</td></tr>
+                <tr><td><strong>Bill-pay / top-up rewards</strong><br><span>Utilities + telecom = recurring engagement</span></td><td>Monthly activation</td></tr>
+                <tr><td><strong>Simple purchase protection</strong><br><span>Clear rules, clean claims UX</span></td><td>Trust</td></tr>
+                <tr><td><strong>Device protection (optional)</strong><br><span>Mobile phone coverage add-on</span></td><td>High demand</td></tr>
+                <tr><td><strong>Support layer</strong><br><span>WhatsApp + phone + web portal</span></td><td>Lower churn</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="top">
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              <div style="font-weight:950; letter-spacing:-0.02em;">Nexora Plus</div>
+              <div style="color:var(--muted); font-size:13px;">Affluent segment: travel + stronger protection to lift spend and retention.</div>
+            </div>
+            <span class="pillSmall"><i style="background:var(--accent2); box-shadow:0 0 0 4px color-mix(in srgb, var(--accent2) 14%, transparent)"></i> Upsell</span>
+          </div>
+          <div class="inner">
+            <table aria-label="Plus tier">
+              <thead><tr><th>Benefit</th><th style="width:240px">What it does</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Travel assistance</strong><br><span>Hotline + coordination support</span></td><td>Travel confidence</td></tr>
+                <tr><td><strong>Enhanced purchase protection</strong><br><span>Higher caps, better windows</span></td><td>Higher trust</td></tr>
+                <tr><td><strong>Extended warranty</strong><br><span>Extra coverage on eligible purchases</span></td><td>Reduces regret</td></tr>
+                <tr><td><strong>Rewards overlay (optional)</strong><br><span>Cashback/points engine, bank or hybrid-funded</span></td><td>Spend lift</td></tr>
+                <tr><td><strong>Travel insurance (optional)</strong><br><span>Cancellation/delay/medical, market limits apply</span></td><td>Real coverage</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="top">
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              <div style="font-weight:950; letter-spacing:-0.02em;">Nexora Signature</div>
+              <div style="color:var(--muted); font-size:13px;">Premium portfolios: concierge + lounge + comprehensive travel protections.</div>
+            </div>
+            <span class="pillSmall"><i style="background:var(--accent3); box-shadow:0 0 0 4px color-mix(in srgb, var(--accent3) 14%, transparent)"></i> Flagship</span>
+          </div>
+          <div class="inner">
+            <table aria-label="Signature tier">
+              <thead><tr><th>Benefit</th><th style="width:240px">What it does</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Concierge</strong><br><span>Dining, bookings, assistance — white-label</span></td><td>Premium feel</td></tr>
+                <tr><td><strong>Airport lounge</strong><br><span>Access or partner networks (configurable)</span></td><td>Status + comfort</td></tr>
+                <tr><td><strong>Comprehensive travel insurance</strong><br><span>Medical, cancellation, interruption</span></td><td>Confidence</td></tr>
+                <tr><td><strong>Identity protection</strong><br><span>Alerts + remediation assistance</span></td><td>Security</td></tr>
+                <tr><td><strong>Premium rewards overlay</strong><br><span>Targeted offers + higher earn rates</span></td><td>Retention anchor</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="top">
+            <div style="font-weight:950; letter-spacing:-0.02em;">Mobile-First Architecture</div>
+            <span class="tag"><span class="mini" style="background:var(--violet); box-shadow:0 0 0 4px rgba(183,164,255,.14)"></span><b>Built for</b> Africa + Caribbean</span>
+          </div>
+          <div class="inner" style="color:var(--muted); line-height:1.55; font-size:13.5px">
+            <ul class="bullets">
+              <li><strong>WhatsApp-first</strong> activation and support (where allowed)</li>
+              <li><strong>SMS alerts</strong> for offers, enrollments, claim updates</li>
+              <li><strong>USSD compatibility</strong> (optional, market-dependent)</li>
+              <li><strong>Lightweight claims</strong> submission + status tracking</li>
+              <li><strong>Bank app embed</strong> or standalone portal (white-label)</li>
+            </ul>
+            <div style="margin-top:12px; padding:12px; border:1px solid var(--stroke); border-radius:16px; background:rgba(255,255,255,.03)">
+              <div style="font-weight:900; color:var(--text)">Design principle</div>
+              <div style="margin-top:6px">
+                Benefits must be <strong>easy to understand</strong>, <strong>easy to activate</strong>, and <strong>easy to claim</strong>.
+                Complexity kills adoption.
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- KPIs -->
+  <section class="section" id="kpis">
+    <div class="wrap">
+      <div class="sectionHeader">
+        <div>
+          <h2>Executive Metrics (Live)</h2>
+          <p>These are presentation counters — placeholders for your actual benchmarks. They animate when visible.</p>
+        </div>
+        <span class="tag"><span class="mini"></span><b>Boardroom</b> clarity</span>
+      </div>
+
+      <div class="panel">
+        <div class="top">
+          <div style="font-weight:950; letter-spacing:-0.02em;">Illustrative uplift targets</div>
+          <span class="pillSmall"><i></i> Adjustable</span>
+        </div>
+        <div class="inner">
+          <div class="kpis" role="list">
+            <div class="kpi" role="listitem">
+              <div class="label">Activation rate</div>
+              <div class="value"><span class="count" data-to="18" data-suffix="%">0%</span></div>
+              <div class="note">More active cards through clear value.</div>
+            </div>
+            <div class="kpi" role="listitem">
+              <div class="label">Monthly transactions</div>
+              <div class="value"><span class="count" data-to="12" data-prefix="+">+0</span></div>
+              <div class="note">Higher frequency from offers + rewards.</div>
+            </div>
+            <div class="kpi" role="listitem">
+              <div class="label">Churn reduction</div>
+              <div class="value"><span class="count" data-to="9" data-suffix="%">0%</span></div>
+              <div class="note">Protections + concierge improve stickiness.</div>
+            </div>
+            <div class="kpi" role="listitem">
+              <div class="label">Fee revenue potential</div>
+              <div class="value"><span class="count" data-to="2.5" data-prefix="$" data-suffix="/mo">$0/mo</span></div>
+              <div class="note">Tier pricing (bank-paid or cardholder-paid).</div>
+            </div>
+          </div>
+          <div style="margin-top:12px; color:var(--muted); font-size:13px; line-height:1.5">
+            Replace these KPIs with your pilot results as soon as you have them. Until then, they function as executive anchors: activation, usage, churn, and revenue.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pitch -->
+  <section class="section" id="pitch">
+    <div class="wrap">
+      <div class="sectionHeader">
+        <div>
+          <h2>Executive Pitch (Deck-less)</h2>
+          <p>Structured like a deck, delivered like a product story. Optimized for bank leadership.</p>
+        </div>
+        <span class="tag"><span class="mini" style="background:var(--accent3); box-shadow:0 0 0 4px color-mix(in srgb, var(--accent3) 14%, transparent)"></span><b>Decision</b> ready</span>
+      </div>
+
+      <div class="slides" role="list">
+        <div class="slide" role="listitem">
+          <div class="head"><div class="n">01</div><div class="t">The Bank Problem</div></div>
+          <div class="body">
+            <ul class="bullets">
+              <li>Cards are commoditized; customers multi-bank.</li>
+              <li>Debit/prepaid activation can be weak without clear value.</li>
+              <li>Retention suffers without differentiation.</li>
+              <li>Building a benefits ecosystem in-house is slow and expensive.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="slide" role="listitem">
+          <div class="head"><div class="n">02</div><div class="t">The Nexora Global Benefits Solution</div></div>
+          <div class="body">
+            A premium benefits infrastructure layer for international banks: perks, travel, protections, and optional insurance — white-label and market-configurable.
+            <div class="kpis" style="grid-template-columns:1fr 1fr; margin-top:12px">
+              <div class="kpi"><div class="label">Attach to</div><div class="value">Credit/Debit/Prepaid</div><div class="note">Portfolio-wide SKUs.</div></div>
+              <div class="kpi"><div class="label">Deliver</div><div class="value">Perks + Protection</div><div class="note">Immediate cardholder value.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide" role="listitem">
+          <div class="head"><div class="n">03</div><div class="t">Why It Works</div></div>
+          <div class="body">
+            <ul class="bullets">
+              <li><strong>Perceived value</strong> increases card preference.</li>
+              <li><strong>Rewards + offers</strong> drive habitual spend.</li>
+              <li><strong>Protections</strong> increase trust and reduce churn.</li>
+              <li><strong>Travel privileges</strong> differentiate premium segments (especially GCC).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="slide" role="listitem">
+          <div class="head"><div class="n">04</div><div class="t">Mobile-First Delivery</div></div>
+          <div class="body">
+            <ul class="bullets">
+              <li>QR/SMS activation.</li>
+              <li>WhatsApp + phone support (bank-branded).</li>
+              <li>Portal or bank-app embedded experience.</li>
+              <li>Offer and claim status notifications.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="slide" role="listitem">
+          <div class="head"><div class="n">05</div><div class="t">Commercial Model</div></div>
+          <div class="body">
+            <ul class="bullets">
+              <li>Per-cardholder monthly license (tier-based)</li>
+              <li>Implementation + white-label fees</li>
+              <li>Partner-funded merchant offers (reduces bank cost)</li>
+              <li>Optional insurance/protection modules (market-dependent)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="slide" role="listitem">
+          <div class="head"><div class="n">06</div><div class="t">Bank Outcomes</div></div>
+          <div class="body">
+            <ul class="bullets">
+              <li>More active cards.</li>
+              <li>Higher transaction frequency.</li>
+              <li>Lower churn.</li>
+              <li>Fee revenue + interchange lift.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="slide" role="listitem">
+          <div class="head"><div class="n">07</div><div class="t">Regional Fit</div></div>
+          <div class="body" id="fitSlide">
+            <ul class="bullets">
+              <li><strong>Caribbean:</strong> tourism + remittance-driven value, travel perks.</li>
+              <li><strong>Africa:</strong> mobile-first, device protection, mass-market offers.</li>
+              <li><strong>Middle East:</strong> prestige, lounge, concierge, premium travel benefits.</li>
+              <li><strong>EU:</strong> PSD2/Open Banking–aligned benefits, cross-border perks, travel and protection.</li>
+              <li><strong>Asia:</strong> high-growth markets, digital-first perks, travel and premium tiers.</li>
+              <li><strong>UK:</strong> FCA-aligned benefits, domestic and travel perks, premium differentiation.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="slide" role="listitem">
+          <div class="head"><div class="n">08</div><div class="t">The Ask</div></div>
+          <div class="body">
+            <div style="color:var(--text); font-weight:950; letter-spacing:-0.02em;">
+              Give us a country + portfolio mix.
+            </div>
+            <div style="margin-top:8px">
+              We'll return a localized tier lineup, partner plan, rollout approach, and pricing proposal.
+            </div>
+          </div>
+        </div>
+
+        <div class="slide" role="listitem">
+          <div class="head"><div class="n">09</div><div class="t">Why Nexora Global Benefits Wins</div></div>
+          <div class="body">
+            Banks don't need another card. They need <strong>differentiation</strong>, <strong>activation</strong>, <strong>retention</strong>, and <strong>prestige</strong>.
+            Nexora Global Benefits delivers all four — without building an internal benefits division.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- nexora.com landing -->
+  <section class="section" id="landing">
+    <div class="wrap">
+      <div class="sectionHeader">
+        <div>
+          <h2>nexora.com — Landing Pitch Block</h2>
+          <p>A clean "above the fold + lead capture" section you can lift into a real site. Copy is tuned by region mode.</p>
+        </div>
+        <span class="tag"><span class="mini"></span><b>Copy</b> + layout ready</span>
+      </div>
+
+      <div class="landing">
+        <div class="inner">
+          <div class="landingGrid">
+            <div>
+              <div class="kicker" style="margin-bottom:10px"><b id="landingKicker">Caribbean</b> • Benefits infrastructure for modern banks</div>
+              <h2 style="margin:0; font-size:34px; letter-spacing:-0.03em; font-weight:950;" id="landingTitle">
+                Launch a premium cardholder benefits program in weeks — not quarters.
+              </h2>
+              <p class="sub" style="margin-top:12px" id="landingSub">
+                Nexora Global Benefits™ gives banks a turnkey benefits layer for credit, debit, and prepaid portfolios: perks, offers, travel privileges, protections, and optional insurance modules — delivered through a mobile-first experience.
+              </p>
+
+              <div class="panel" style="box-shadow:none; margin-top:12px">
+                <div class="top" style="border-bottom:0">
+                  <div style="font-weight:950">What you get</div>
+                  <span class="tag"><span class="mini" style="background:var(--ok); box-shadow:0 0 0 4px rgba(53,208,127,.14)"></span><b>Turnkey</b></span>
+                </div>
+                <div class="inner" style="padding-top:0">
+                  <div class="kpis" style="margin:0">
+                    <div class="kpi"><div class="label">White-label</div><div class="value">Bank-branded</div><div class="note">Your brand, our engine.</div></div>
+                    <div class="kpi"><div class="label">Activation</div><div class="value">QR/SMS</div><div class="note">Mobile-first enrollment.</div></div>
+                    <div class="kpi"><div class="label">Support</div><div class="value">WhatsApp</div><div class="note">Plus phone + portal.</div></div>
+                    <div class="kpi"><div class="label">Reporting</div><div class="value">Analytics</div><div class="note">Adoption + usage metrics.</div></div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-top:12px; color:var(--muted); font-size:13px; line-height:1.5">
+                Production note: this block can be dropped into a Next.js page, static HTML, or a CMS page. No dependencies.
+              </div>
+            </div>
+
+            <div class="form" aria-label="Lead capture">
+              <div style="font-weight:950; letter-spacing:-0.02em; margin-bottom:8px">Request a partner call</div>
+              <div class="helper" style="margin-bottom:12px">This form is demo-only. It stores nothing — it just shows UX.</div>
+
+              <div class="field">
+                <label for="company">Bank / Company</label>
+                <input id="company" placeholder="Example Bank" />
+              </div>
+              <div class="field">
+                <label for="country">Country / Region</label>
+                <select id="country">
+                  <option>Caribbean</option>
+                  <option>Africa</option>
+                  <option>Middle East (GCC)</option>
+                  <option>Asia</option>
+                  <option>EU</option>
+                  <option>UK</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="portfolio">Portfolio focus</label>
+                <select id="portfolio">
+                  <option>Debit + Prepaid (Mass)</option>
+                  <option>Credit (Affluent)</option>
+                  <option>Premium / Elite</option>
+                  <option>Mixed portfolio</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="email">Work email</label>
+                <input id="email" type="email" placeholder="name@bank.com" />
+              </div>
+              <div class="field">
+                <label for="note">What are you trying to improve?</label>
+                <textarea id="note" placeholder="Activation, retention, premium differentiation, travel benefits, etc."></textarea>
+              </div>
+
+              <button class="btn primary" id="fakeSubmit" type="button" style="width:100%; justify-content:center">
+                <svg class="icon" viewBox="0 0 24 24" fill="none">
+                  <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+                Send request
+              </button>
+
+              <div class="helper" style="margin-top:10px">
+                You can wire this to your real CRM later (GoHighLevel, HubSpot, custom, etc.).
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="fineprint">
+        <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+          <div>
+            <div style="font-weight:900; color:var(--text)">Notes</div>
+            <div style="margin-top:6px">
+              Insurance/protection modules depend on local underwriting partners and regulation. All benefits are configurable per country and portfolio economics.
+            </div>
+          </div>
+          <div style="display:flex; gap:10px; align-items:flex-start; flex-wrap:wrap;">
+            <button class="btn" id="printBtn" type="button" title="Print to PDF">
+              <svg class="icon" viewBox="0 0 24 24" fill="none">
+                <path d="M7 7V3h10v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M7 17H5a2 2 0 0 1-2-2V11a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M7 14h10v7H7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+              Print/PDF
+            </button>
+            <button class="btn" id="openNotes" type="button" title="Presenter notes">
+              <svg class="icon" viewBox="0 0 24 24" fill="none">
+                <path d="M4 6a2 2 0 0 1 2-2h9l5 5v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6z" stroke="currentColor" stroke-width="2"/>
+                <path d="M14 4v5h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Presenter Notes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast">Sent (demo)</div>
+
+  <!-- One pager modal -->
+  <div class="modal" id="modal">
+    <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="bar">
+        <strong id="modalTitle">Nexora Global Benefits™ — One-Pager</strong>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span class="kbd">Esc</span>
+          <button class="pill" id="closeModal" type="button">Close</button>
+        </div>
+      </div>
+      <div class="content">
+        <div class="grid2">
+          <div class="panel" style="box-shadow:none">
+            <div class="top" style="border-bottom:0">
+              <div style="font-weight:950;">What it is</div>
+              <span class="tag"><span class="mini"></span><b>White-label</b></span>
+            </div>
+            <div class="inner" style="padding-top:0; color:var(--muted); line-height:1.6">
+              Nexora Global Benefits™ is global benefits infrastructure for banks outside the U.S. Attach perks, travel privileges, protections, and optional insurance modules to any credit, debit, or prepaid portfolio — delivered via a mobile-first experience with reporting.
+            </div>
+          </div>
+
+          <div class="panel" style="box-shadow:none">
+            <div class="top" style="border-bottom:0">
+              <div style="font-weight:950;">Why banks want it</div>
+              <span class="tag"><span class="mini" style="background:var(--accent3); box-shadow:0 0 0 4px color-mix(in srgb, var(--accent3) 14%, transparent)"></span><b>Retention</b></span>
+            </div>
+            <div class="inner" style="padding-top:0; color:var(--muted); line-height:1.6">
+              Benefits increase activation, transaction frequency, and loyalty. Banks avoid building partner ecosystems from scratch and can launch premium differentiation quickly.
+            </div>
+          </div>
+
+          <div class="panel" style="grid-column:1 / -1; box-shadow:none">
+            <div class="top">
+              <div style="font-weight:950;">Commercial model</div>
+              <span class="tag"><span class="mini" style="background:var(--violet); box-shadow:0 0 0 4px rgba(183,164,255,.14)"></span><b>Tiered</b></span>
+            </div>
+            <div class="inner">
+              <table aria-label="Commercial model">
+                <thead><tr><th>Revenue stream</th><th>Notes</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Monthly license</strong></td><td>Per cardholder (Access / Plus / Signature), billed to bank or cardholder</td></tr>
+                  <tr><td><strong>Implementation</strong></td><td>White-labeling, activation channels, portal/app embed</td></tr>
+                  <tr><td><strong>Partner-funded offers</strong></td><td>Merchant-funded discounts lower bank costs</td></tr>
+                  <tr><td><strong>Optional protection/insurance</strong></td><td>Depends on local underwriting/partners</td></tr>
+                </tbody>
+              </table>
+              <div style="margin-top:12px; color:var(--muted); line-height:1.55">
+                Region mode adapts the story for Caribbean, Africa, Middle East, Asia, EU, and UK.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notes modal -->
+  <div class="modal" id="notesModal">
+    <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="notesTitle">
+      <div class="bar">
+        <strong id="notesTitle">Presenter Notes</strong>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span class="kbd">Esc</span>
+          <button class="pill" id="closeNotes" type="button">Close</button>
+        </div>
+      </div>
+      <div class="content" style="color:var(--muted); line-height:1.6">
+        <div class="panel" style="box-shadow:none">
+          <div class="top"><div style="font-weight:950">Talk track</div><span class="tag"><span class="mini"></span><b>30 seconds</b></span></div>
+          <div class="inner">
+            "Nexora Global Benefits makes bank cards in growth markets feel premium. We provide a benefits layer — perks, travel, protections, optional insurance — that banks can attach to credit, debit, or prepaid portfolios quickly.
+            It's white-label, mobile-first (QR/SMS/WhatsApp), and comes with reporting that shows adoption and usage."
+          </div>
+        </div>
+
+        <div class="panel" style="box-shadow:none; margin-top:12px">
+          <div class="top"><div style="font-weight:950">Close</div><span class="tag"><span class="mini" style="background:var(--accent3); box-shadow:0 0 0 4px color-mix(in srgb, var(--accent3) 14%, transparent)"></span><b>Next step</b></span></div>
+          <div class="inner">
+            "Pick the first country + portfolio mix + tier strategy. We'll return a localized benefits lineup, partner roadmap, and pricing model you can launch with."
+          </div>
+        </div>
+
+        <div class="panel" style="box-shadow:none; margin-top:12px">
+          <div class="top"><div style="font-weight:950">Customization checklist</div><span class="tag"><span class="mini" style="background:var(--violet); box-shadow:0 0 0 4px rgba(183,164,255,.14)"></span><b>Fill in</b></span></div>
+          <div class="inner">
+            <ul class="bullets">
+              <li>Bank name + program name</li>
+              <li>Target country + language</li>
+              <li>Tier pricing and who pays (bank vs cardholder)</li>
+              <li>Activation channels (app, QR, SMS, WhatsApp, call center)</li>
+              <li>Local partners (merchant offers, travel, protection providers)</li>
+              <li>Servicing workflow and SLAs</li>
+              <li>Reporting KPIs and cadence</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Smooth navigation
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({behavior:'smooth', block:'start'});
+        history.replaceState(null, '', id);
+      });
+    });
+
+    // Toast
+    const toast = document.getElementById('toast');
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(()=>toast.classList.remove('show'), 1200);
+    }
+
+    // Copy link
+    document.getElementById('copyLink').addEventListener('click', async ()=>{
+      try{
+        await navigator.clipboard.writeText(location.href);
+        showToast('Copied link');
+      }catch(e){
+        alert('Copy failed. You can manually copy the URL from the address bar.');
+      }
+    });
+
+    // Print
+    document.getElementById('printBtn').addEventListener('click', ()=>window.print());
+
+    // One-pager modal
+    const modal = document.getElementById('modal');
+    document.getElementById('openOnePager').addEventListener('click', ()=>{ modal.classList.add('open'); document.body.style.overflow='hidden'; });
+    document.getElementById('closeModal').addEventListener('click', ()=>{ modal.classList.remove('open'); document.body.style.overflow=''; });
+    modal.addEventListener('click', (e)=>{ if(e.target===modal){ modal.classList.remove('open'); document.body.style.overflow=''; } });
+
+    // Notes modal
+    const notesModal = document.getElementById('notesModal');
+    document.getElementById('openNotes').addEventListener('click', ()=>{ notesModal.classList.add('open'); document.body.style.overflow='hidden'; });
+    document.getElementById('closeNotes').addEventListener('click', ()=>{ notesModal.classList.remove('open'); document.body.style.overflow=''; });
+    notesModal.addEventListener('click', (e)=>{ if(e.target===notesModal){ notesModal.classList.remove('open'); document.body.style.overflow=''; } });
+
+    // ESC
+    document.addEventListener('keydown', (e)=>{
+      if(e.key==='Escape'){
+        modal.classList.remove('open');
+        notesModal.classList.remove('open');
+        document.body.style.overflow='';
+      }
+    });
+
+    // Fake submit
+    document.getElementById('fakeSubmit').addEventListener('click', ()=>{
+      showToast('Sent (demo)');
+    });
+
+    // Region mode switch updates accents + copy
+    const regCar = document.getElementById('regCar');
+    const regAfr = document.getElementById('regAfr');
+    const regMe  = document.getElementById('regMe');
+    const regAsia = document.getElementById('regAsia');
+    const regEu  = document.getElementById('regEu');
+    const regUk  = document.getElementById('regUk');
+
+    const topSub = document.getElementById('topSub');
+    const regionSummary = document.getElementById('regionSummary');
+    const cardBadge = document.getElementById('cardBadge');
+    const landingKicker = document.getElementById('landingKicker');
+    const landingTitle = document.getElementById('landingTitle');
+    const landingSub = document.getElementById('landingSub');
+
+    function setRegion(region){
+      // Toggle UI active states
+      const map = {car: regCar, afr: regAfr, me: regMe, asia: regAsia, eu: regEu, uk: regUk};
+      Object.entries(map).forEach(([k,btn])=>{
+        const active = k===region;
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-selected', active.toString());
+      });
+
+      // Apply region palette + copy
+      const r = document.documentElement.style;
+      if(region==='car'){
+        // Caribbean: turquoise, soft blue, warm gold
+        r.setProperty('--accent',  '#2FE7C3');
+        r.setProperty('--accent2', '#5B9BD5');
+        r.setProperty('--accent3', '#F4C430');
+
+        topSub.textContent = 'Caribbean benefits infrastructure for modern banks';
+        cardBadge.textContent = 'Caribbean • Global-ready';
+        landingKicker.textContent = 'Caribbean';
+
+        regionSummary.innerHTML = `
+          <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+            <div>
+              <div style="font-weight:950; letter-spacing:-0.02em;">Caribbean positioning</div>
+              <div style="color:var(--muted); font-size:13px; margin-top:6px; line-height:1.45;">
+                Premium differentiation for small markets: <strong>travel perks</strong>, tourism-facing offers, and
+                diaspora-friendly value that increases card preference.
+              </div>
+            </div>
+            <span class="tag"><span class="mini"></span><b>Brand</b> + retention</span>
+          </div>`;
+
+        landingTitle.textContent = 'Launch a premium cardholder benefits program in weeks — not quarters.';
+        landingSub.textContent = 'Nexora Global Benefits™ gives Caribbean banks a turnkey benefits layer: merchant offers, travel assistance, protections, and optional premium modules — delivered through a clean mobile-first experience.';
+
+      } else if(region==='afr'){
+        // Africa: teal, indigo, emerald
+        r.setProperty('--accent',  '#14B8A6');
+        r.setProperty('--accent2', '#4F46E5');
+        r.setProperty('--accent3', '#059669');
+        topSub.textContent = 'Africa mobile-first benefits infrastructure for modern banks';
+        cardBadge.textContent = 'Africa • Mobile-first';
+        landingKicker.textContent = 'Africa';
+
+        regionSummary.innerHTML = `
+          <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+            <div>
+              <div style="font-weight:950; letter-spacing:-0.02em;">Africa positioning</div>
+              <div style="color:var(--muted); font-size:13px; margin-top:6px; line-height:1.45;">
+                Built for mobile-first markets: <strong>WhatsApp/SMS</strong> activation, mass-market merchant value,
+                and high-demand modules like <strong>device protection</strong>.
+              </div>
+            </div>
+            <span class="tag"><span class="mini"></span><b>Activation</b> at scale</span>
+          </div>`;
+
+        landingTitle.textContent = 'Mobile-first benefits that drive activation and monthly usage.';
+        landingSub.textContent = 'Nexora Global Benefits™ helps African banks and fintechs differentiate debit and prepaid portfolios with offers, bill-pay rewards, device protection, and clean support — designed for high adoption.';
+
+      } else if(region==='me'){
+        // Middle East: sand, deep charcoal, amber
+        r.setProperty('--accent',  '#D4AF37');   // gold
+        r.setProperty('--accent2', '#1F2937');
+        r.setProperty('--accent3', '#B45309');   // amber
+        topSub.textContent = 'Middle East (GCC) prestige benefits infrastructure for premium banking';
+        cardBadge.textContent = 'Middle East • Prestige';
+        landingKicker.textContent = 'Middle East';
+
+        regionSummary.innerHTML = `
+          <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+            <div>
+              <div style="font-weight:950; letter-spacing:-0.02em;">Middle East positioning</div>
+              <div style="color:var(--muted); font-size:13px; margin-top:6px; line-height:1.45;">
+                Prestige-driven differentiation: <strong>lounge</strong>, <strong>concierge</strong>, premium travel privileges,
+                and high-touch servicing that strengthens premium portfolio retention.
+              </div>
+            </div>
+            <span class="tag"><span class="mini"></span><b>Prestige</b> + loyalty</span>
+          </div>`;
+
+        landingTitle.textContent = 'Prestige benefits your premium customers actually notice.';
+        landingSub.textContent = 'Nexora Global Benefits™ enables GCC and Middle East banks to deploy concierge, lounge access, premium travel protection, and elite rewards overlays — with bank-branded servicing and reporting.';
+
+      } else if(region==='asia'){
+        // Asia: jade, vermillion, rose (distinct from other regions)
+        r.setProperty('--accent',  '#0F766E');   // jade
+        r.setProperty('--accent2', '#C2410C');   // vermillion
+        r.setProperty('--accent3', '#BE185D');   // rose
+        topSub.textContent = 'Asia benefits infrastructure for high-growth markets';
+        cardBadge.textContent = 'Asia • Digital-first';
+        landingKicker.textContent = 'Asia';
+
+        regionSummary.innerHTML = `
+          <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+            <div>
+              <div style="font-weight:950; letter-spacing:-0.02em;">Asia positioning</div>
+              <div style="color:var(--muted); font-size:13px; margin-top:6px; line-height:1.45;">
+                Digital-first for high-growth markets: <strong>mobile and app-led</strong> activation, travel and premium tiers,
+                and locally relevant perks and protections.
+              </div>
+            </div>
+            <span class="tag"><span class="mini"></span><b>Growth</b> + digital</span>
+          </div>`;
+
+        landingTitle.textContent = 'Benefits that scale with Asia’s digital-first banks.';
+        landingSub.textContent = 'Nexora Global Benefits™ helps Asian banks and fintechs differentiate with travel, protections, rewards, and premium tiers — built for mobile-first, high-growth markets.';
+
+      } else if(region==='eu'){
+        // EU: euro blue, indigo, violet
+        r.setProperty('--accent',  '#2563EB');
+        r.setProperty('--accent2', '#4F46E5');
+        r.setProperty('--accent3', '#7C3AED');
+        topSub.textContent = 'EU benefits infrastructure for modern banks';
+        cardBadge.textContent = 'EU • Cross-border';
+        landingKicker.textContent = 'EU';
+
+        regionSummary.innerHTML = `
+          <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+            <div>
+              <div style="font-weight:950; letter-spacing:-0.02em;">EU positioning</div>
+              <div style="color:var(--muted); font-size:13px; margin-top:6px; line-height:1.45;">
+                PSD2/Open Banking–aligned: <strong>cross-border perks</strong>, travel and protection benefits,
+                and a single benefits layer across member markets.
+              </div>
+            </div>
+            <span class="tag"><span class="mini"></span><b>Compliance</b> + value</span>
+          </div>`;
+
+        landingTitle.textContent = 'A benefits layer that works across the Single Market.';
+        landingSub.textContent = 'Nexora Global Benefits™ gives EU banks a turnkey benefits platform: travel, protections, and optional insurance — PSD2-friendly and configurable per member state.';
+
+      } else if(region==='uk'){
+        // UK: navy, crimson, soft blue
+        r.setProperty('--accent',  '#1E40AF');   // navy
+        r.setProperty('--accent2', '#B91C1C');   // red
+        r.setProperty('--accent3', '#0284C7');   // blue
+        topSub.textContent = 'UK benefits infrastructure for modern banks';
+        cardBadge.textContent = 'UK • FCA-aligned';
+        landingKicker.textContent = 'UK';
+
+        regionSummary.innerHTML = `
+          <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+            <div>
+              <div style="font-weight:950; letter-spacing:-0.02em;">UK positioning</div>
+              <div style="color:var(--muted); font-size:13px; margin-top:6px; line-height:1.45;">
+                FCA-aligned benefits: <strong>domestic and travel perks</strong>, protections, and premium differentiation
+                for UK issuers and their cardholders.
+              </div>
+            </div>
+            <span class="tag"><span class="mini"></span><b>Regulation</b> + retention</span>
+          </div>`;
+
+        landingTitle.textContent = 'Premium card benefits that fit the UK market.';
+        landingSub.textContent = 'Nexora Global Benefits™ helps UK banks differentiate with travel, protections, concierge, and rewards — FCA-aligned and ready to deploy.';
+      }
+
+      // Nudge backgrounds to re-render by toggling a CSS variable that affects gradients
+      // (Some browsers cache radial gradients; this forces recalculation.)
+      document.body.style.backgroundPosition = (Math.random()*2).toFixed(2) + 'px ' + (Math.random()*2).toFixed(2) + 'px';
+    }
+
+    regCar.addEventListener('click', ()=>setRegion('car'));
+    regAfr.addEventListener('click', ()=>setRegion('afr'));
+    regMe.addEventListener('click', ()=>setRegion('me'));
+    regAsia.addEventListener('click', ()=>setRegion('asia'));
+    regEu.addEventListener('click', ()=>setRegion('eu'));
+    regUk.addEventListener('click', ()=>setRegion('uk'));
+
+    // KPI counters animate when visible
+    const counters = Array.from(document.querySelectorAll('.count'));
+    const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
+
+    function formatValue(el, val){
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const isFloat = String(el.dataset.to).includes('.');
+      const v = isFloat ? val.toFixed(1) : Math.round(val).toString();
+      // Special-case: "$2.5/mo" style
+      if(prefix==='$' && suffix==='/mo'){
+        el.textContent = `${prefix}${v}${suffix}`;
+      } else if(suffix==='%'){
+        el.textContent = `${prefix}${v}${suffix}`;
+      } else {
+        el.textContent = `${prefix}${v}${suffix}`;
+      }
+    }
+
+    function animateCounter(el){
+      const to = parseFloat(el.dataset.to || '0');
+      const dur = 900 + Math.random()*400;
+      const start = performance.now();
+      const from = 0;
+
+      function step(now){
+        const t = Math.min(1, (now - start)/dur);
+        const eased = easeOutCubic(t);
+        const val = from + (to - from) * eased;
+        formatValue(el, val);
+        if(t < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    const seen = new WeakSet();
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          counters.forEach(el=>{
+            if(!seen.has(el)){
+              seen.add(el);
+              animateCounter(el);
+            }
+          });
+        }
+      });
+    }, {threshold: .25});
+
+    const kpiSection = document.getElementById('kpis');
+    io.observe(kpiSection);
+
+    // Default region
+    setRegion('car');
+
+    // Optional deep link: ?region=afr | me | asia | eu | uk
+    const params = new URLSearchParams(location.search);
+    const rParam = params.get('region');
+    if(rParam==='afr') setRegion('afr');
+    if(rParam==='me') setRegion('me');
+    if(rParam==='asia') setRegion('asia');
+    if(rParam==='eu') setRegion('eu');
+    if(rParam==='uk') setRegion('uk');
+  </script>
+</body>
+</html>
