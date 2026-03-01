@@ -128,7 +128,8 @@
       pointer-events:auto;
     }
     .seg button{
-      border:0; background:transparent;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.04);
       color:var(--muted);
       font-weight:750; font-size:13px;
       padding:10px 12px; border-radius:999px;
@@ -136,13 +137,19 @@
       pointer-events:auto;
       touch-action:manipulation;
       -webkit-tap-highlight-color:transparent;
-      transition: background .2s ease, color .2s ease, transform .2s ease;
+      transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
     }
-    .seg button:hover{transform: translateY(-1px)}
+    .seg button:hover{
+      background:rgba(255,255,255,.08);
+      color:var(--text);
+      border-color:var(--stroke2);
+      transform:translateY(-1px);
+    }
     .seg button.active{
       color:var(--text);
-      background:rgba(255,255,255,.08);
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.10);
+      background:color-mix(in srgb, var(--accent2) 18%, rgba(255,255,255,.08));
+      border-color:color-mix(in srgb, var(--accent2) 50%, var(--stroke));
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.12);
     }
     .seg button:active{opacity:.9}
 
@@ -659,8 +666,8 @@
 
         <aside class="card side" aria-label="Region selector and card preview">
           <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
-            <div style="font-weight:950; letter-spacing:-0.02em;">Region mode</div>
-            <div class="seg" role="tablist" aria-label="Region">
+            <div style="font-weight:950; letter-spacing:-0.02em;">Select region</div>
+            <div class="seg" role="tablist" aria-label="Select region" title="Click a region to update the page">
               <button id="regCar" class="active" type="button" role="tab" aria-selected="true">Caribbean</button>
               <button id="regAfr" type="button" role="tab" aria-selected="false">Africa</button>
               <button id="regMe" type="button" role="tab" aria-selected="false">Middle East</button>
